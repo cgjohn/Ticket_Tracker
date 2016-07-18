@@ -41,17 +41,13 @@ app.controller('HomeCtrl', function($scope, $firebaseAuth, $firebaseObject, $win
 	  			$scope.users = $firebaseObject(ref);
 
 	  			$scope.users.name = $scope.name;
+	  			$scope.users.time_created = Date.now();
 	  			$scope.users.$save();
 
+				$window.location.href = '#/'; //redirects to the home page
 
-
-	  			
-				$window.location.href = '#/';
 			}).catch(function(error) {
-
-
 				$scope.errorMessage = error.message;
-				// console.error("Error: ", error);
 			});
 	}
 });
@@ -60,18 +56,19 @@ app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $wi
     $scope.authObj = $firebaseAuth();
 	
 	$scope.login = function(){
+		$scope.errorMessage = "";
 		console.log($scope.email);
 		console.log($scope.password);
 
 		$scope.authObj.$signInWithEmailAndPassword($scope.email, $scope.password)
 		.then(function(firebaseUser) {
-		  console.log("Signed in as:", firebaseUser.uid);
-		  $scope.firebaseUser1 = firebaseUser;
-		  console.log($scope.firebaseUser1);
-		  $window.location.href = '#/';
+			console.log("Signed in as:", firebaseUser.uid);
+			$scope.firebaseUser1 = firebaseUser;
+			console.log($scope.firebaseUser1);
+			$window.location.href = '#/';
 		}).catch(function(error) {
-		  console.error("Authentication failed:", error);
-		  $scope.errorMessage = error.message;
+			console.error("Authentication failed:", error);
+			$scope.errorMessage = error.message;
 		  
 		});
 	}
