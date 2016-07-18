@@ -26,7 +26,34 @@ app.config(function($routeProvider) {
 });
 
 app.controller('HomeCtrl', function($scope, $firebaseAuth, $firebaseObject, $window) {
-   
+   $scope.authObj = $firebaseAuth();
+	
+    $scope.errorMessage = "";
+
+	$scope.signUp = function(){
+
+		$scope.authObj.$createUserWithEmailAndPassword($scope.email, $scope.password)
+			.then(function(firebaseUser) {
+				console.log("User " + firebaseUser.uid + " created successfully!");
+				
+
+	  			var ref = firebase.database().ref().child('users').child(firebaseUser.uid);
+	  			$scope.users = $firebaseObject(ref);
+
+	  			$scope.users.name = $scope.name;
+	  			$scope.users.$save();
+
+
+
+	  			
+				$window.location.href = '#/';
+			}).catch(function(error) {
+
+
+				$scope.errorMessage = error.message;
+				// console.error("Error: ", error);
+			});
+	}
 });
 
 app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $window) {
