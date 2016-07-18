@@ -1,29 +1,41 @@
 <div class="container">
 
-<a href="#/login">Login</a>
-<h2>Sign up</h2>
-<form ng-submit="signUp()">
-  <div>
-    <label>Name</label>
-    <input ng-model="name">
+  <div class="box">
+    ~Something goes here~
   </div>
-  
-  <div>
-    <label>Email</label>
-    <input ng-model="email">
-  </div>
-  
-  <div>
-    <label>Password</label>
-    <input type="password" ng-model="password">
-  </div>
-  
-  <button type="submit">Sign up</button>
-  
-</form>
 
-<div ng-show="errorMessage" class="alert alert-danger">
-  {{errorMessage}}
-</div>
+  <div class="row">
+
+    <div class="col-md-6">
+      <h1>Ticket Tracker</h1>
+      <p>Get the most bang for your buck.</p>
+    </div>
+
+    <div class="col-md-6">
+      <a href="#/login">Login</a>
+      <h2>Sign up</h2>
+      <form ng-submit="signUp()">
+        <div>
+          <input class="name-input" ng-model="name" placeholder="Full Name">
+        </div>
+        
+        <div>
+          <input ng-model="email" placeholder="Email">
+        </div>
+        
+        <div>
+          <input type="password" ng-model="password" placeholder="Password">
+        </div>
+        
+        <button class="signupbutton" type="submit">Sign up</button>
+        
+      </form>
+
+      <div ng-show="errorMessage" class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+    </div>
+
+  </div>
 
 </div>
