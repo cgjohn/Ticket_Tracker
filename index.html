@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ticket Tracker</title>
+
+	<meta name="viewport" content="width=device-width, user-scalable=false">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<link href='https://fonts.googleapis.com/css?family=Orbitron:400,500' rel='stylesheet' type='text/css'>
+
+
+</head>
+<body ng-app= "ticketApp">
+
+
+
+	<div ng-view></div>
+
+
+
+	<script src="angular.js"></script><!--you might need CDN here-->
+    <script src="angular-route.js"></script><!--you might need CDN here-->
+    <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyB8Wz8faWiPgX9d52xSItj-vpuTa8HX9Jo",
+	    authDomain: "ticket-tracker-b0ce3.firebaseapp.com",
+	    databaseURL: "https://ticket-tracker-b0ce3.firebaseio.com",
+	    storageBucket: "ticket-tracker-b0ce3.appspot.com",
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+</html>
