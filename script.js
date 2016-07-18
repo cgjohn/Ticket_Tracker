@@ -41,6 +41,8 @@ app.controller('HomeCtrl', function($scope, $firebaseAuth, $firebaseObject, $win
 	  			$scope.users = $firebaseObject(ref);
 
 	  			$scope.users.name = $scope.name;
+	  			$scope.users.email = $scope.email;
+	  			$scope.users.userID = firebaseUser.uid;
 	  			$scope.users.time_created = Date.now();
 	  			$scope.users.$save();
 
