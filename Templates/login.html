@@ -1,1 +1,22 @@
-login.html
+<h2>Log in</h2>
+
+<form ng-submit="login()">
+  
+  <div>
+    <label>Email</label>
+    <input ng-model="email">
+  </div>
+  
+  <div>
+    <label>Password</label>
+    <input type="password" ng-model="password">
+  </div>
+  
+  <button type="submit">Log in</button>
+  
+</form>
+
+<div ng-show="errorMessage" class="alert alert-danger">
+	{{errorMessage}}
+</div>
+
