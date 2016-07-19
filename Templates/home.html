@@ -58,11 +58,43 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="">
+      <div class="ticket-image">
+        ~Something goes here~
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="graph-image">
         ~Something goes here~
       </div>
     </div>
 
+    <div class="col-md-6">
+      <div class="">
+        <h2>Make predictions</h2>
+        <p>View easy to read graphs to help you decide when to buy</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <form ng-submit="signUp()">
+        <div>
+          <input class="last-row-name-input" ng-model="name" placeholder="Full Name">
+        </div>
+        
+        <div>
+          <input class="last-row-email-input" ng-model="email" placeholder="Email">
+        </div>
+
+        <div>
+          <input class="last-row-ps-input" type="password" ng-model="password" placeholder="Password">
+        </div>
+        
+        <button class="signupbutton" type="submit">Sign up</button>
+      </form>
   </div>
 
 </div>
