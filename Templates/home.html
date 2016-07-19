@@ -12,27 +12,54 @@
     </div>
 
     <div class="col-md-6">
-      <a href="#/login">Login</a>
-      <h2>Sign up</h2>
       <form ng-submit="signUp()">
         <div>
           <input class="name-input" ng-model="name" placeholder="Full Name">
         </div>
         
         <div>
-          <input ng-model="email" placeholder="Email">
-        </div>
-        
-        <div>
+          <input class="email-input" ng-model="email" placeholder="Email">
           <input type="password" ng-model="password" placeholder="Password">
         </div>
         
         <button class="signupbutton" type="submit">Sign up</button>
-        
+
+        <p>Already have an account?
+        <a href="#/login">Login</a> </p>
       </form>
 
       <div ng-show="errorMessage" class="alert alert-danger">
         {{errorMessage}}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="sign-up-image">
+        ~Something goes here~
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="sign-up">
+        <h2>Sign Up</h2>
+        <p>We can send you updates so you know exactly when to buy</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="">
+        <h2>Find that ticket</h2>
+        <p>Search events or flights and track price fluctuations</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="">
+        ~Something goes here~
       </div>
     </div>
 

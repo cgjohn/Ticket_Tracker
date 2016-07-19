@@ -3,7 +3,7 @@
     padding-top: 70px; 
 }
 
-/*---Styles for home.html---*/
+/*---Styles for home.html first row---*/
 .box {
     width: 100%;
     height: 100px;
@@ -15,6 +15,18 @@
 
 .row {
     text-align: center;
+    height: 80vh;
+    /*border: 1px solid red;*/
+    padding-top: 15%;
+}
+
+.name-input {
+    padding-right: 200px;
+    margin-bottom: 20px;
+}
+.email-input {
+    margin-right: 40px;
+    margin-bottom: 20px;
 }
 
 .signupbutton {
@@ -52,3 +64,15 @@
     position:relative;
     top:1px;
 }
+
+/*--Styles for second row--*/
+.sign-up-image {
+    width: 100%;
+    height: 100px;
+    border: 1px solid black;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/*--Styles for third row--*/
