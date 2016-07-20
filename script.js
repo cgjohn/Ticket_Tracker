@@ -155,6 +155,7 @@ app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $fir
 			});
 			console.log($scope.dataset0, "<-- dataset0");
 		}).then(function(){
+			d3.select("svg").remove(); 
 
 			var width = 500;
 			var height = 250;    
