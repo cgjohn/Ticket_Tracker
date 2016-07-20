@@ -247,15 +247,15 @@
 }
 .searchBar {
     margin-top: 50px;
-    width: 400px;
-    padding: 5px;
+    width: 450px;
+    padding: 8px;
     border: 1px solid black;
     font-family: "Raleway";
     font-size: 20px;
     color: #3E86B8;
 }
 .mainDescription {
-    margin-top: 30px;
+    margin-top: 50px;
     font-family: "Raleway";
     color: #A8A9AC;
     font-size: 20px;
