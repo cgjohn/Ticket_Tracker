@@ -21,7 +21,6 @@
 <div class="container">
 
   <button ng-click="update()"> Update </button> 
-  <button ng-click="getData('9394794')"> Get Data </button> 
 
   <div class="box">
     <img class="imgLarge" src="/images/Laptop.png">
@@ -31,8 +30,10 @@
 
     <div class="col-md-6">
       <div class="col-sm-8">
-        <h1>Ticket Tracker</h1>
-        <p>Get the most bang for your buck.</p>
+        <div class="smdescription">
+          <h1>Ticket Tracker</h1>
+          <p>Get the most bang for your buck.</p>
+        </div>
       </div>
       <div class="col-sm-4">
         <img class="rockstarImg" src="/images/RockStar.png">
@@ -47,7 +48,7 @@
         
         <div>
           <input class="email-input" ng-model="email" placeholder="Email">
-          <input type="password" ng-model="password" placeholder="Password">
+          <input class="pass-input" type="password" ng-model="password" placeholder="Password">
         </div>
         <input class="radioBtn" type="radio" name="terms" value="other"> I agree to the ticket trackers terms and conditions
         <button class="signupbutton" type="submit">Sign up</button>
@@ -82,7 +83,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div class="">
+      <div class="findTicket">
         <h1>Find that ticket</h1>
         <p>Search events or flights and track price fluctuations</p>
       </div>
@@ -102,7 +103,7 @@
     </div>
 
     <div class="col-md-6">
-      <div class="">
+      <div class="makePredict">
         <h3>Make predictions</h3>
         <p>View easy to read graphs to help you decide when to buy</p>
       </div>

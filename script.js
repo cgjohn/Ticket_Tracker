@@ -105,20 +105,6 @@ app.controller('HomeCtrl', function($scope, $http, $firebaseAuth, $firebaseObjec
 	    };
 	}
 
-	$scope.getData = function (eventID) {
-		$scope.dates = [];
-		$scope.prices = [];
-		$scope.listings = $firebaseObject(firebase.database().ref().child('listings').child(eventID));
-		$scope.listings.$loaded().then(function() {
-			console.log($scope.listings);
-			angular.forEach($scope.listings, function(price, date) {
-				$scope.dates.push(new Date(parseInt(date)));
-				$scope.prices.push(price);
-			});
-		});
-	}
-
-
 });
 
 app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $window) {
@@ -143,8 +129,27 @@ app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $wi
 	}
 });
 
-app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $window) {
+app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $firebaseArray, $window) {
     $scope.authObj = $firebaseAuth();
+
+    $scope.searchEvent = function() {
+    	$scope.events = $firebaseArray(firebase.database().ref().child('events'));
+    }
+
+
+	$scope.getData = function (eventID) {
+		console.log("I make it here");
+		$scope.dates = [];
+		$scope.prices = [];
+		$scope.listings = $firebaseObject(firebase.database().ref().child('listings').child(eventID));
+		$scope.listings.$loaded().then(function() {
+			console.log($scope.listings);
+			angular.forEach($scope.listings, function(price, date) {
+				$scope.dates.push(new Date(parseInt(date)));
+				$scope.prices.push(price);
+			});
+		});
+	}
 
  
 

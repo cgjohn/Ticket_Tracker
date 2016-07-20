@@ -1,4 +1,16 @@
 
+	<input ng-model="searchText">
+	<button ng-click="searchEvent()"> Search </button>
+
+	<div ng-repeat="event in events | filter:searchText">
+		<button ng-click="getData(event.$id)"> {{event.name}} </button>
+	</div>
+
+	<div>
+		{{dates}}
+		{{prices}}
+	</div>
+
 	<p>Hello World</p>
 
 	<svg width="50" height="50">

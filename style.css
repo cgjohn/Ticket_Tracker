@@ -46,6 +46,14 @@
     transform: translate(-50%, -50%);
 }
 
+.smdescription h1{
+    font-family: "Raleway";
+}
+.smdescription p{
+    font-family: "Raleway";
+    font-size: 20px;
+}
+
 .row {
     text-align: center;
     height: 80vh;
@@ -54,12 +62,23 @@
 }
 
 .name-input {
-    padding-right: 200px;
-    margin-bottom: 10px;
+    width: 360px;
+    padding: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #3E86B8;
+    font-family: "Raleway";
 }
 .email-input {
-    margin-right: 40px;
-    margin-bottom: 10px;
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #3E86B8;
+    font-family: "Raleway";
+}
+.pass-input {
+    padding: 5px;
+    border: 1px solid #3E86B8;
+    font-family: "Raleway";
 }
 
 .signupbutton {
@@ -73,16 +92,18 @@
     background:-ms-linear-gradient(top, #637aad 5%, #5972a7 100%);
     background:linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#637aad', endColorstr='#5972a7',GradientType=0);*/
-    background-color:#637aad;
+    background-color: #3E86B8;
     border:1px solid #314179;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
     font-size:13px;
-    padding:6px 150px;
+    padding:6px 155px;
     text-decoration:none;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-family: "Raleway";
 }
 
 .signupbutton:hover {
@@ -104,12 +125,15 @@
 .alarmImg {
     width: 200px;
 }
-.getNotified h2{
+.getNotified h2 {
     color: #DF7A7A;
     font-family: "Raleway";
+    font-size: 40px;
 }
-.getNotified p{
+.getNotified p {
     color: #DF7A7A;
+    font-family: "Raleway";
+    font-size: 20px;
 }
 /*.alarm-image {
     width: 100%;
@@ -124,6 +148,15 @@
 .searchImg {
     width: 200px;
 }
+.findTicket h1 {
+    font-family: "Raleway";
+    font-size: 40px;
+}
+.findTicket p {
+    font-family: "Raleway";
+    font-size: 20px;
+}
+
 /*.ticket-image {
     width: 100%;
     height: 100px;
@@ -137,6 +170,19 @@
 .graphImg {
     width: 200px;
 }
+
+.makePredict h3 {
+    color: #3E86B8;
+    font-family: "Raleway";
+    font-size: 40px;
+}
+
+.makePredict p {
+    color: #3E86B8;
+    font-family: "Raleway";
+    font-size: 20px;
+}
+
 /*.graph-image {
     width: 100%;
     height: 100px;
@@ -148,14 +194,27 @@
 
 /*--Styles for last row (Sign up)--*/
 .last-row-name-input {
-    padding-right: 200px;
+    width: 350px;
+    padding: 5px;
     margin-bottom: 20px;
+    border: 1px solid #3E86B8;
+    font-family: "Raleway";
 }
 .last-row-email-input {
-    padding-right: 200px;
+    width: 350px;
+    padding: 5px;
     margin-bottom: 20px;
+    border: 1px solid #3E86B8;
+    font-family: "Raleway";
 }
 .last-row-ps-input {
-    padding-right: 200px;
+    width: 350px;
+    padding: 5px;
     margin-bottom: 20px;
+    border: 1px solid #3E86B8;
+    font-family: "Raleway";
+}
+
+.signuplink {
+    margin-top: 10px;
 }
