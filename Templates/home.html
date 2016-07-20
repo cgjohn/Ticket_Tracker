@@ -1,16 +1,41 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+
+        <button type="button" class="btn btn-default navbar-btn">Watch Video</button>
+        <div class="navLogo">
+          <span class="navText">tracker</span>
+          <img class="navImage" alt="Brand" src="/images/logo.png">
+        </div>
+        
+
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/login">Sign In</a></li>
+      </ul>
+      
+    </div>
+  </nav>
+
+
 <div class="container">
 
   <button ng-click="update()"> Update </button> 
 
   <div class="box">
-    ~Something goes here~
+    <img class="imgLarge" src="/images/Laptop.png">
   </div>
 
   <div class="row">
 
     <div class="col-md-6">
-      <h1>Ticket Tracker</h1>
-      <p>Get the most bang for your buck.</p>
+      <div class="col-sm-8">
+        <h1>Ticket Tracker</h1>
+        <p>Get the most bang for your buck.</p>
+      </div>
+      <div class="col-sm-4">
+        <img class="rockstarImg" src="/images/RockStar.png">
+      </div>
     </div>
 
     <div class="col-md-6">
@@ -23,7 +48,7 @@
           <input class="email-input" ng-model="email" placeholder="Email">
           <input type="password" ng-model="password" placeholder="Password">
         </div>
-        
+        <input class="radioBtn" type="radio" name="terms" value="other"> I agree to the ticket trackers terms and conditions
         <button class="signupbutton" type="submit">Sign up</button>
 
         <p>Already have an account?

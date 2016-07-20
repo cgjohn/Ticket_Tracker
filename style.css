@@ -7,10 +7,40 @@
 .box {
     width: 100%;
     height: 100px;
-    border: 1px solid black;
     margin-top: 30px;
     margin-bottom: 50px;
     text-align: center;
+}
+
+.navImage {
+    width: 35px;
+    margin-bottom: 4px;
+}
+
+.navText {
+    font-family: Raleway;
+    font-weight: 200;
+    font-size: 20px;
+}
+
+.radioBtn{
+    margin-bottom: 10px;
+}
+
+.imgLarge {
+    width: 20%;
+}
+
+.rockstarImg {
+    width: 75px;
+    margin-left: -150px;
+}
+
+.navLogo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .row {
@@ -22,15 +52,15 @@
 
 .name-input {
     padding-right: 200px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .email-input {
     margin-right: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .signupbutton {
-    -moz-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+/*    -moz-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
     -webkit-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
     box-shadow:inset 0px 1px 0px 0px #7a8eb9;
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #637aad), color-stop(1, #5972a7));
@@ -39,7 +69,7 @@
     background:-o-linear-gradient(top, #637aad 5%, #5972a7 100%);
     background:-ms-linear-gradient(top, #637aad 5%, #5972a7 100%);
     background:linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#637aad', endColorstr='#5972a7',GradientType=0);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#637aad', endColorstr='#5972a7',GradientType=0);*/
     background-color:#637aad;
     border:1px solid #314179;
     display:inline-block;
@@ -49,7 +79,9 @@
     font-size:13px;
     padding:6px 150px;
     text-decoration:none;
+    margin-top: 10px;
 }
+
 .signupbutton:hover {
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5972a7), color-stop(1, #637aad));
     background:-moz-linear-gradient(top, #5972a7 5%, #637aad 100%);

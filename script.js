@@ -5,7 +5,7 @@ app.run(["$rootScope", "$location", function($rootScope, $location) {
     // We can catch the error thrown when the $requireSignIn promise is rejected
     // and redirect the user back to the home page
     if (error === "AUTH_REQUIRED") {
-      $location.path("/login");
+      $location.path("/");
     }
   });
 }]);
@@ -21,6 +21,16 @@ app.config(function($routeProvider) {
 	$routeProvider.when('/login', {
 		controller: 'LoginCtrl',
 		templateUrl: 'templates/login.html',
+	})
+
+	$routeProvider.when('/main', {
+		controller: 'MainCtrl',
+		templateUrl: 'templates/main.html',
+		resolve: {
+      		"currentAuth": function($firebaseAuth) {
+	        return $firebaseAuth().$requireSignIn();
+      		}
+  		}	
 	})
 
 });
@@ -125,12 +135,30 @@ app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $wi
 			console.log("Signed in as:", firebaseUser.uid);
 			$scope.firebaseUser1 = firebaseUser;
 			console.log($scope.firebaseUser1);
-			$window.location.href = '#/';
+			$window.location.href = '#/main';
 		}).catch(function(error) {
 			console.error("Authentication failed:", error);
 			$scope.errorMessage = error.message;
 		  
 		});
 	}
+});
+
+app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $window) {
+    $scope.authObj = $firebaseAuth();
+
+ 
+    var svg = dimple.newSvg("body", 800, 600);
+    var data = [
+      { "Word":"Hello", "Awesomeness":2000 },
+      { "Word":"World", "Awesomeness":3000 }
+    ];
+    var chart = new dimple.chart(svg, data);
+    chart.addCategoryAxis("x", "Word");
+    chart.addMeasureAxis("y", "Awesomeness");
+    chart.addSeries(null, dimple.plot.bar);
+    chart.draw();
+
+	
 });
 

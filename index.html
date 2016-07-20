@@ -9,23 +9,12 @@
 
 	<link rel="stylesheet" type="text/css" href="style.css">
 
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+
 </head>
 
-<body ng-app= "ticketApp">
+<body ng-app= "ticketApp" id="chartContainer">
 
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="btn btn-default navbar-btn">Watch Video</button>
-				<!-- <a class="navbar-brand" href="#">
-				<img alt="Brand" src="">
-				</a> -->
-			</div>
-			<ul class="nav navbar-nav navbar-right">
-        		<li><a href="#/login">Sign In</a></li>
-			</ul>
-		</div>
-	</nav>
 
 	<div ng-view></div>
 
@@ -44,7 +33,10 @@
 	  };
 	  firebase.initializeApp(config);
 	</script>
+
 	<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
     <script src="script.js"></script>
 
 
