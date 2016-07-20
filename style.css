@@ -1,3 +1,6 @@
+.splash {
+    background-color: #FCFFF1;
+}
 /*--Padding for fixed navbar--*/
 .container { 
     padding-top: 70px; 
@@ -18,7 +21,7 @@
 }
 
 .navText {
-    font-family: Raleway;
+    font-family: "Raleway";
     font-weight: 200;
     font-size: 20px;
 }
@@ -43,11 +46,19 @@
     transform: translate(-50%, -50%);
 }
 
+.smdescription h1{
+    font-family: "Raleway";
+}
+.smdescription p{
+    font-family: "Raleway";
+    font-size: 20px;
+}
+
 .row {
     text-align: center;
     height: 80vh;
     /*border: 1px solid red;*/
-    padding-top: 15%;
+    padding-top: 10%;
 }
 
 .name-input {
@@ -98,34 +109,75 @@
 }
 
 /*--Styles for second row--*/
-.sign-up-image {
+.alarmImg {
+    width: 200px;
+}
+.getNotified h2 {
+    color: #DF7A7A;
+    font-family: "Raleway";
+    font-size: 40px;
+}
+.getNotified p {
+    color: #DF7A7A;
+    font-family: "Raleway";
+    font-size: 20px;
+}
+/*.alarm-image {
     width: 100%;
     height: 100px;
     border: 1px solid black;
     margin-top: 30px;
     margin-bottom: 50px;
     text-align: center;
-}
+}*/
 
 /*--Styles for third row--*/
-.ticket-image {
-    width: 100%;
-    height: 100px;
-    border: 1px solid black;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    text-align: center;
+.searchImg {
+    width: 200px;
+}
+.findTicket h1 {
+    font-family: "Raleway";
+    font-size: 40px;
+}
+.findTicket p {
+    font-family: "Raleway";
+    font-size: 20px;
 }
 
-/*--Styles for fourth row--*/
-.graph-image {
+/*.ticket-image {
     width: 100%;
     height: 100px;
     border: 1px solid black;
     margin-top: 30px;
     margin-bottom: 50px;
     text-align: center;
+}*/
+
+/*--Styles for fourth row--*/
+.graphImg {
+    width: 200px;
 }
+
+.makePredict h3 {
+    color: #3E86B8;
+    font-family: "Raleway";
+    font-size: 40px;
+}
+
+.makePredict p {
+    color: #3E86B8;
+    font-family: "Raleway";
+    font-size: 20px;
+}
+
+/*.graph-image {
+    width: 100%;
+    height: 100px;
+    border: 1px solid black;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}*/
 
 /*--Styles for last row (Sign up)--*/
 .last-row-name-input {
