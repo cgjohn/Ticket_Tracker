@@ -271,7 +271,39 @@
 .signuplink {
     margin-top: 10px;
 }
+/*--Styles for main.html--*/
+.signoutButton {
+    float: right;
+}
+.mainText {
+    font-family: "Raleway";
+    font-weight: 200;
+    font-size: 40px;
+    color: #3E86B8;
+    text-align: center;
+}
+.mainImage {
+    width: 35px;
+    margin-bottom: 4px;
+}
+.searchBar {
+    margin-top: 50px;
+    width: 450px;
+    padding: 8px;
+    border: 1px solid black;
+    font-family: "Raleway";
+    font-size: 20px;
+    color: #3E86B8;
+}
+.mainDescription {
+    margin-top: 50px;
+    font-family: "Raleway";
+    color: #A8A9AC;
+    font-size: 20px;
+    font-weight: 200;
+}
 
+/*--Graph Styling--*/
 path {
     fill: none;
     stroke: #A8A9AC;
