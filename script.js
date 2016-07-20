@@ -1,4 +1,4 @@
-var app = angular.module('ticketApp', ['ngRoute', 'firebase', 'n3-line-chart']); 
+var app = angular.module('ticketApp', ['ngRoute', 'firebase']); 
 
 app.run(["$rootScope", "$location", function($rootScope, $location) {
   $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
