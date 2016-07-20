@@ -134,30 +134,115 @@ app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $fir
 
    	$scope.getData = function (eventID) {
 		console.log("I make it here");
+		$scope.dataset0 = [];
 		$scope.dates = [];
 		$scope.prices = [];
 		$scope.listings = $firebaseObject(firebase.database().ref().child('listings').child(eventID));
 		$scope.listings.$loaded().then(function() {
 			console.log($scope.listings);
 			angular.forEach($scope.listings, function(price, date) {
+				$scope.dataset0.push({
+					date: new Date(parseInt(date)),
+					value: price
+				})
 				$scope.dates.push(new Date(parseInt(date)));
 				$scope.prices.push(price);
 			});
-		});
-	}
+			console.log($scope.dataset0, "<-- dataset0");
+		}).then(function(){
 
- 
-    var svg = dimple.newSvg("body", 800, 600);
-    var data = [
-      { "Word":"Hello", "Awesomeness":2000 },
-      { "Word":"World", "Awesomeness":3000 }
-    ];
-    var chart = new dimple.chart(svg, data);
-    chart.addCategoryAxis("x", "Word");
-    chart.addMeasureAxis("y", "Awesomeness");
-    chart.addSeries(null, dimple.plot.bar);
-    chart.draw();
+			var width = 500;
+			var height = 250;    
 
+			// Create the SVG 'canvas'
+			var svg = d3.select("p")
+			    .append("svg")
+			    .attr("viewBox", "0 0 " + width + " " + height)
+
+
+			// get the data
+			var dataset = $scope.dataset0;
+
+			console.log(dataset, " <--- dataset");
+			// Define the padding around the graph
+			var padding = 50;
+
+			// Set the scales
+			var minDate = d3.min(dataset, function(d) { return d.date; });
+			minDate.setDate(minDate.getDate() - 1);
+
+			var maxDate = d3.max(dataset, function(d) { return d.date; });
+
+			var xScale = d3.time.scale()
+			    .domain([minDate, maxDate])
+			    .range([padding, width - padding]);
+
+			var yScale = d3.scale.linear()
+			    .domain([d3.min(dataset, function(d) { return d.value - 100; }), d3.max(dataset, function(d) { return d.value + 100; })])
+			    .range([height - padding, padding]);
+
+			// x-axis
+			var format = d3.time.format("%d %b");
+			var xAxis = d3.svg.axis()
+			    .scale(xScale)
+			    .orient("bottom")
+			    .tickFormat(format)
+			    .ticks(d3.time.days, 1);
+
+			svg.append("g")
+			    .attr("class", "axis x-axis")
+			    .attr("transform", "translate(0," + (height - padding) + ")")
+			    .call(xAxis);
+
+			// y-axis
+			var yAxis = d3.svg.axis()
+			    .scale(yScale)
+			    .orient("left")
+			    .tickFormat(function (d) { return d; })
+			    .tickSize(5, 5, 0)
+			    .ticks(5); // set rough # of ticks
+
+			svg.append("g")
+			    .attr("class", "axis y-axis")
+			    .attr("transform", "translate(" + padding + ",0)")
+			    .call(yAxis);
+
+			// draw line graph
+			var line = d3.svg.line()
+			    .x(function(d) { 
+			        return xScale(d.date); 
+			    })
+			    .y(function(d) { 
+			        return yScale(d.value); 
+			    });
+
+			svg.append("svg:path").attr("d", line(dataset));
+
+			// plot circles
+			svg.selectAll("circle")
+			    .data(dataset)
+			    .enter()
+			    .append("circle")
+			    .attr("class", "data-point")
+			    .attr("cx", function(d) {
+			        return xScale(d.date);
+			    })
+			    .attr("cy", function(d) {
+			        return yScale(d.value);
+			    })
+			    .attr("r", 5)
+			    .on("mouseover", function(d,i) {
+			    	console.log("hi");
+				    d3.select(this).append("text")
+				        .text(function(d) {return d.value;})
+				        .attr("xScale", xScale(d.date))
+				        .attr("yScale", yScale(d.value)); 
+				    });
+
+			});
+		
+	
+		}
 	
 });
 
