@@ -105,21 +105,20 @@ app.controller('HomeCtrl', function($scope, $http, $firebaseAuth, $firebaseObjec
 	    };
 	}
 
-	// var getListingPrices = function(id) {
-	// 	$http({
-	// 		url: "https://api.stubhub.com/search/inventory/v1",
-	// 		method: "GET",
-	// 		headers: {'Authorization': "Bearer iqzOnUo98P2SGazfIz0oQ227Wnoa"},
-	// 		params: {
-	// 			'eventid': id,
-	// 			'pricingsummary': true
-	// 		}
-	// 	}).then(function(response) {
-	// 		$scope.listings[Date.now()] = response.data.pricingSummary.averageTicketPrice;
-	// 		console.log($scope.listings);
-	// 		$scope.listings.$save();
-	// 	});
-	// }
+	$scope.getData = function (eventID) {
+		$scope.dates = [];
+		$scope.prices = [];
+		$scope.listings = $firebaseObject(firebase.database().ref().child('listings').child(eventID));
+		$scope.listings.$loaded().then(function() {
+			console.log($scope.listings);
+			angular.forEach($scope.listings, function(price, date) {
+				$scope.dates.push(new Date(parseInt(date)));
+				$scope.prices.push(price);
+			});
+		});
+	}
+
+
 });
 
 app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $window) {
