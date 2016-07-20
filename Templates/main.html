@@ -1,23 +1,31 @@
-	<div class="col-sm-11">
-		<input ng-model="searchText">
-		<button ng-click="searchEvent()"> Search </button>
-	</div>
+<div class="signoutButton">
 	<div class="col-sm-1">
 		<button class="btn signOut"><a href="#/login" ng-click="authObj.$signOut()">Sign out</a></button>
-		</div>
-	<div ng-repeat="event in events | filter:searchText">
-		<button ng-click="getData(event.$id)"> {{event.name}} </button>
 	</div>
+</div>
 
-	<div>
-		{{dates}}
-		{{prices}}
-	</div>
+<div class="mainText">
+	ticket
+	<img class="mainImage" alt="Brand" src="/images/logo.png">
+</div>
 
-	<p>Hello World</p>
+<div class="col-md-12">
+	<input ng-model="searchText">
+	<button ng-click="searchEvent()"> Search </button>
+</div>
 
-	
-	
+<div ng-repeat="event in events | filter:searchText">
+	<button ng-click="getData(event.$id)"> {{event.name}} </button>
+</div>
+
+<div>
+	{{dates}}
+	{{prices}}
+</div>
 
 
-	
+
+
+
+
+

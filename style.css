@@ -230,7 +230,24 @@
 .signuplink {
     margin-top: 10px;
 }
+/*--Styles for main.html--*/
+.signoutButton {
+    float: right;
+}
+.mainText {
+    font-family: "Raleway";
+    font-weight: 200;
+    font-size: 40px;
+    color: #3E86B8;
+    text-align: center;
+    margin: 150px;
+}
+.mainImage {
+    width: 35px;
+    margin-bottom: 4px;
+}
 
+/*--Graph Styling--*/
 path {
     fill: none;
     stroke: #A8A9AC;
