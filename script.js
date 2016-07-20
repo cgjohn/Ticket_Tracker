@@ -184,7 +184,7 @@ app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $fir
 			    .range([padding, width - padding]);
 
 			var yScale = d3.scale.linear()
-			    .domain([d3.min(dataset, function(d) { return d.value - 100; }), d3.max(dataset, function(d) { return d.value + 100; })])
+			    .domain([d3.min(dataset, function(d) { return d.value - 50; }), d3.max(dataset, function(d) { return d.value + 50; })])
 			    .range([height - padding, padding]);
 
 			// x-axis

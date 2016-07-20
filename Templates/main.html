@@ -1,20 +1,35 @@
-	<div class="col-sm-11">
-		<input ng-model="searchText">
-		<button ng-click="searchEvent()"> Search </button>
-	</div>
-	<div class="col-sm-1">
-		<button class="btn signOut"><a href="#/login" ng-click="authObj.$signOut()">Sign out</a></button>
+	<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+
+       
+        <div class="navLogo">
+	         <span class="navText">tracker</span>
+	         <img class="navImage" alt="Brand" src="/images/logo.png">
+	        </div>
+	        <div >
+				<input class="search" ng-model="searchText">
+				<button class="search searchButton" ng-click="searchEvent()"> Search 
+				</button>
+			</div>
+     	</div>
+	    <div >
+			<button class=" col-sm-offset-9 btn signOut"><a href="#/login" ng-click="authObj.$signOut()">Sign out</a></button>
 		</div>
-	<div ng-repeat="event in events | filter:searchText">
-		<button ng-click="getData(event.$id)"> {{event.name}} </button>
+	</div>
+  </nav>
+	<div class="searchResults">
+		<div ng-repeat="event in events | filter:searchText">
+			<button ng-click="getData(event.$id)"> {{event.name}} </button>
+		</div>
 	</div>
 
-	<div>
-		{{dates}}
-		{{prices}}
-	</div>
+	<p></p>
+	
 
-	<p>Hello World</p>
+	
+
+	
 
 	
 	
