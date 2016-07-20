@@ -134,6 +134,13 @@
     color: #DF7A7A;
     font-family: "Raleway";
     font-size: 20px;
+
+}
+.underline {
+    width: 255px;
+    margin-left: 150px;
+    margin-bottom: 20px;
+    border: 2px solid #A8A9AC;
 }
 /*.alarm-image {
     width: 100%;
