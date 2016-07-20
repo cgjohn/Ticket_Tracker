@@ -1,7 +1,10 @@
-
-	<input ng-model="searchText">
-	<button ng-click="searchEvent()"> Search </button>
-
+	<div class="col-sm-11">
+		<input ng-model="searchText">
+		<button ng-click="searchEvent()"> Search </button>
+	</div>
+	<div class="col-sm-1">
+		<button class="btn signOut"><a href="#/login" ng-click="authObj.$signOut()">Sign out</a></button>
+		</div>
 	<div ng-repeat="event in events | filter:searchText">
 		<button ng-click="getData(event.$id)"> {{event.name}} </button>
 	</div>
@@ -13,14 +16,8 @@
 
 	<p>Hello World</p>
 
-	<svg width="50" height="50">
-  		<circle cx="25" cy="25" r="25" fill="purple" />
-	</svg>
-
-	<div class="col-sm-4">
-		<button class="btn signOut"><a href="#/login" ng-click="authObj.$signOut()">Sign out</a></button>
-	</div>
-	<linechart data="data" options="options" mode="" width="" height=""></linechart>
+	
+	
 
 
 	
