@@ -1,11 +1,19 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
+
         <button type="button" class="btn btn-default navbar-btn">Watch Video</button>
-        <!-- <a class="navbar-brand" href="#">
-        <img alt="Brand" src="">
-        </a> -->
+        <div class="navLogo">
+          <span class="navText">tracker</span>
+          <img class="navImage" alt="Brand" src="/images/logo.png">
+        </div>
+        
+
       </div>
+      <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/">Sign Up</a></li>
+      </ul>
+      
     </div>
   </nav>
 
@@ -13,23 +21,25 @@
 
 <div class="container">
 
-<h2>Log in</h2>
+<div class="row">
+    <form ng-submit="login()">
+        <div>
+          <input class="last-row-email-input" ng-model="email" placeholder="Email">
+        </div>
 
-<form ng-submit="login()">
-  
-  <div>
-    <label>Email</label>
-    <input ng-model="email">
+        <div>
+          <input class="last-row-ps-input" type="password" ng-model="password" placeholder="Password">
+        </div>
+        
+        <button class="signupbutton" type="submit">Log in</button>
+
+        <div class="signuplink">
+          <p>New to Ticket Tracker?
+          <a href="#/">Sign Up</a> </p>
+        </div>
+      </form>
   </div>
-  
-  <div>
-    <label>Password</label>
-    <input type="password" ng-model="password">
-  </div>
-  
-  <button type="submit">Log in</button>
-  
-</form>
+
 
 <div ng-show="errorMessage" class="alert alert-danger">
 	{{errorMessage}}
