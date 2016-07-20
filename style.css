@@ -133,8 +133,7 @@
 .getNotified p {
     color: #DF7A7A;
     font-family: "Raleway";
-    font-size: 20px;
-
+    font-size: 25px;
 }
 .underline {
     width: 255px;
@@ -161,7 +160,7 @@
 }
 .findTicket p {
     font-family: "Raleway";
-    font-size: 20px;
+    font-size: 25px;
 }
 
 /*.ticket-image {
@@ -187,7 +186,7 @@
 .makePredict p {
     color: #3E86B8;
     font-family: "Raleway";
-    font-size: 20px;
+    font-size: 25px;
 }
 
 /*.graph-image {
