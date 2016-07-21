@@ -127,6 +127,47 @@
     top:1px;
 }
 
+.searchButton {
+    background-color: #3E86B8;
+    border: 1px solid #314179;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 13px;
+    padding-top: 6px;
+    text-decoration:none;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-family: "Raleway";
+}
+
+.searchResults {
+    margin-top: 75px;
+}
+
+.searchButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5972a7), color-stop(1, #637aad));
+    background:-moz-linear-gradient(top, #5972a7 5%, #637aad 100%);
+    background:-webkit-linear-gradient(top, #5972a7 5%, #637aad 100%);
+    background:-o-linear-gradient(top, #5972a7 5%, #637aad 100%);
+    background:-ms-linear-gradient(top, #5972a7 5%, #637aad 100%);
+    background:linear-gradient(to bottom, #5972a7 5%, #637aad 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5972a7', endColorstr='#637aad',GradientType=0);
+    background-color:#5972a7;
+}
+
+.searchButton:active {
+    position:relative;
+    top:1px;
+}
+
+.search {
+    margin-top: 12px;
+}
+.signOut{
+    margin-top: 8px;
+}
+
 /*--Styles for second row--*/
 .alarmImg {
     width: 200px;
@@ -141,12 +182,11 @@
     font-family: "Raleway";
     font-size: 25px;
 }
-.underline {
-    width: 255px;
-    margin-left: 150px;
-    margin-bottom: 20px;
-    border: 2px solid #A8A9AC;
+.getNotified hr {
+    width: 200px;
+    border: 1px solid #A8A9AC;
 }
+
 /*.alarm-image {
     width: 100%;
     height: 100px;
@@ -167,6 +207,10 @@
 .findTicket p {
     font-family: "Raleway";
     font-size: 25px;
+}
+.findTicket hr {
+    width: 200px;
+    border: 1px solid #A8A9AC;
 }
 
 /*.ticket-image {
@@ -193,6 +237,11 @@
     color: #3E86B8;
     font-family: "Raleway";
     font-size: 25px;
+}
+
+.makePredict hr {
+    width: 200px;
+    border: 1px solid #A8A9AC;
 }
 
 /*.graph-image {
@@ -230,7 +279,39 @@
 .signuplink {
     margin-top: 10px;
 }
+/*--Styles for main.html--*/
+.signoutButton {
+    float: right;
+}
+.mainText {
+    font-family: "Raleway";
+    font-weight: 200;
+    font-size: 40px;
+    color: #3E86B8;
+    text-align: center;
+}
+.mainImage {
+    width: 35px;
+    margin-bottom: 4px;
+}
+.searchBar {
+    margin-top: 50px;
+    width: 450px;
+    padding: 8px;
+    border: 1px solid black;
+    font-family: "Raleway";
+    font-size: 20px;
+    color: #3E86B8;
+}
+.mainDescription {
+    margin-top: 50px;
+    font-family: "Raleway";
+    color: #A8A9AC;
+    font-size: 20px;
+    font-weight: 200;
+}
 
+/*--Graph Styling--*/
 path {
     fill: none;
     stroke: #A8A9AC;
