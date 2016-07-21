@@ -19,7 +19,7 @@
 		</button>
 <div class="col-md-12">
 
-	<div ng-repeat="event in events | filter:searchText">
+	<div ng-repeat="event in events | filter:searchText | futureDate">
 		<button class="eventButtons" ng-click="displayData(event.$id)"> {{event.name}} </button>
 	</div>
 
