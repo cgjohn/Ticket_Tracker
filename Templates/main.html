@@ -21,6 +21,7 @@
 
 <div class="col-md-12">
 	<div ng-repeat="event in events | filter:searchText">
+
 		<button class="eventButtons" ng-click="displayData(event.$id)"> {{event.name}} </button>
 	</div>
 
@@ -31,10 +32,4 @@
 	</div>
 </div>
 
-
-</div>
-
-<div>
-	{{dates}}
-	{{prices}}
-</div>
+<div id="graph"></div>
