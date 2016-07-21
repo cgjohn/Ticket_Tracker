@@ -11,7 +11,7 @@ app.run(["$rootScope", "$location", function($rootScope, $location) {
 }]);
 
 app.run(['$anchorScroll', function($anchorScroll) {
-  $anchorScroll.yOffset = 500;   // always scroll by 50 extra pixels
+  $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
 }])
 
 
@@ -281,16 +281,15 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 				        .attr("yScale", yScale(d.value)); 
 				    });
 			    
-			});
-			//allows for auto-scroll
+			}).then(function() {
+				//allows for auto-scroll
+				console.log("scrolling");
+				$location.hash('belowGraph');
+		  		$anchorScroll();
+			})
 			
 		}
 		
-		$scope.scroll = function(){
-			console.log("scrolling");
-			$location.hash('bottom');
-	  		$anchorScroll();
-
-		};
+		
 });
 
