@@ -133,6 +133,20 @@ app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $wi
 	}
 });
 
+//Filter out previous events to ensure only events with a date in the future are displayed
+app.filter('futureDate', function() {
+  return function(input) {
+    var out = [];
+    angular.forEach(input, function(myEvent) {
+      if (Date.parse(myEvent.dateOfEvent) > Date.now()) {
+        out.push(myEvent)
+      }
+    })
+    return out;
+  }
+});
+
+
 app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, $firebaseArray, $window, $location, $anchorScroll) {
 
     $scope.authObj = $firebaseAuth();
