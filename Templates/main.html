@@ -7,35 +7,39 @@
 
 <div class="row">
 
-<div class="mainText">
-	ticket
-	<img class="mainImage" alt="Brand" src="/images/logo.png">
-</div>
-
-
-<div class="col-md-12">
-	<input class="searchBar" ng-model="searchText" placeholder="search an event, artist, location, etc.">
-	<button type="button" class="btn btn-default" ng-click="searchEvent()"> 
-		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-	</button>
-</div>
-
-<div class="col-md-12">
-	<div ng-repeat="event in events | filter:searchText">
-		<button class="eventButtons" ng-click="getData(event.$id)"> {{event.name}} </button>
+	<div class="mainText">
+		ticket
+		<img class="mainImage" alt="Brand" src="/images/logo.png">
 	</div>
 
-	<div class="mainDescription">
-		<p>Search or find an event in our featured section</p>
-		<p>Look at what tickets everyone else is watching in Top Charts</p>
-		<p>Easily which events you have your eye on under Following</p>
+
+	<div class="col-md-12">
+		<input class="searchBar" ng-model="searchText" placeholder="search an event, artist, location, etc.">
+		<button type="button" class="btn btn-default" ng-click="searchEvent()"> 
+			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		</button>
 	</div>
+
+	<div class="col-md-12">
+		<div ng-repeat="event in events | filter:searchText">
+			<button class="eventButtons" ng-click="getData(event.$id); scroll()"> {{event.name}} </button>
+		</div>
+
+		<div class="mainDescription">
+			<p>Search or find an event in our featured section</p>
+			<p>Look at what tickets everyone else is watching in Top Charts</p>
+			<p>Easily which events you have your eye on under Following</p>
+		</div>
+	</div>
+
+	
+ 
 </div>
 
 <div id="graph"></div>
 
-</div>
 
+	
 
 
 
