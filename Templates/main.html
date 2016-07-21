@@ -21,6 +21,10 @@
 </div>
 
 <div class="col-md-12">
+	<div ng-repeat="event in events | filter:searchText">
+		<button class="eventButtons" ng-click="getData(event.$id)"> {{event.name}} </button>
+	</div>
+
 	<div class="mainDescription">
 		<p>Search or find an event in our featured section</p>
 		<p>Look at what tickets everyone else is watching in Top Charts</p>
@@ -28,17 +32,16 @@
 	</div>
 </div>
 
-<div id="graph">
+<div id="graph"></div>
 
 </div>
 
-<div ng-repeat="event in events | filter:searchText">
-	<button ng-click="getData(event.$id); gotoGraph()"> {{event.name}} </button>
-</div>
 
 
 
-</div>
+
+
+
 
 
 
