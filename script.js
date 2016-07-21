@@ -133,35 +133,51 @@ app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $wi
 	}
 });
 
-app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $firebaseArray, $window, $location, $anchorScroll) {
+app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, $firebaseArray, $window, $location, $anchorScroll) {
+
     $scope.authObj = $firebaseAuth();
 
     $scope.searchEvent = function() {
     	$scope.events = $firebaseArray(firebase.database().ref().child('events'));
     }
 
-    
-	$scope.getData = function (eventID) {
-		console.log("I make it here");
-		$scope.dataset0 = [];
-		$scope.dates = [];
-		$scope.prices = [];
-		$scope.listings = $firebaseObject(firebase.database().ref().child('listings').child(eventID));
-		$scope.listings.$loaded().then(function() {
-			console.log($scope.listings, "<--listings");
-			angular.forEach($scope.listings, function(price, date) {
-				$scope.dataset0.push({
-					date: new Date(parseInt(date)),
-					value: price
-				})
-				$scope.dates.push(new Date(parseInt(date)));
-				$scope.prices.push(price);
-			});
-			console.log($scope.dataset0, "<-- dataset0");
-		}).then(function(){
-			d3.select("svg").remove(); 
+    $scope.displayData = function(eventID) {
+    	$scope.historicalDataset = [];
+    	$scope.currentDataset = [];
+    	var allPromises = [];
 
-			var width = 500;
+    	$scope.myEvent = $firebaseObject(firebase.database().ref().child('events').child(eventID));
+    	
+    	$scope.myEvent.$loaded().then(function() {
+	    	if ($scope.myEvent.previousEvents) {
+	    		angular.forEach($scope.myEvent.previousEvents, function(prevID) {
+	    			$scope.oldlistings = $firebaseObject(firebase.database().ref().child('listings').child(prevID));
+	    			allPromises.push($scope.oldlistings.$loaded().then(function() {
+				    	angular.forEach($scope.oldlistings, function(price, date) {
+							$scope.historicalDataset.push({
+								date: new Date(parseInt(date)),
+								value: price
+							});
+						});
+					}));
+	    		});
+	    	}
+
+	    	$scope.listings = $firebaseObject(firebase.database().ref().child('listings').child(eventID));
+			allPromises.push($scope.listings.$loaded().then(function() {
+		    	angular.forEach($scope.listings, function(price, date) {
+					$scope.currentDataset.push({
+						date: new Date(parseInt(date)),
+						value: price
+					});
+				});
+			}));
+
+
+			return $q.all(allPromises);
+	    }).then(function(results) {
+	    	d3.select("svg").remove();
+	    	var width = 500;
 			var height = 250;    
 
 			// Create the SVG 'canvas'
@@ -171,9 +187,11 @@ app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $fir
 
 
 			// get the data
-			var dataset = $scope.dataset0;
+			var dataset = $scope.currentDataset;
+			var oldDataset = $scope.historicalDataset;
 
-			console.log(dataset, " <--- dataset");
+			// console.log(dataset, " <--- dataset");
+			// console.log(oldDataset, " <--- old event dataset");
 			// Define the padding around the graph
 			var padding = 50;
 
@@ -188,7 +206,7 @@ app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $fir
 			    .range([padding, width - padding]);
 
 			var yScale = d3.scale.linear()
-			    .domain([d3.min(dataset, function(d) { return d.value - 50; }), d3.max(dataset, function(d) { return d.value + 50; })])
+			    .domain([d3.min(dataset, function(d) { return d.value - 100; }), d3.max(dataset, function(d) { return d.value + 100; })])
 			    .range([height - padding, padding]);
 
 			// x-axis
@@ -260,7 +278,5 @@ app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $fir
 	  		$anchorScroll();
 
 		};
-
-	
 });
 
