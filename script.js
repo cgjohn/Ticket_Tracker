@@ -11,7 +11,7 @@ app.run(["$rootScope", "$location", function($rootScope, $location) {
 }]);
 
 app.run(['$anchorScroll', function($anchorScroll) {
-  $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
+  $anchorScroll.yOffset = 500;   // always scroll by 50 extra pixels
 }])
 
 
@@ -97,7 +97,7 @@ app.controller('HomeCtrl', function($scope, $http, $firebaseAuth, $firebaseObjec
 			}).then(function(response) {
 				$scope.listings = $firebaseObject(firebase.database().ref().child('listings').child(eventID.$id));
 				$scope.listings.$loaded().then(function() {
-					console.log($scope.listings);
+					console.log($scope.listings, "<-- listings");
 					console.log(response.data.pricingSummary.averageTicketPrice)
 					$scope.listings[Date.now()] = response.data.pricingSummary.averageTicketPrice;
 					$scope.listings.$save();
@@ -187,6 +187,7 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 				});
 			}));
 
+
 			return $q.all(allPromises);
 	    }).then(function(results) {
 	    	d3.select("svg").remove();
@@ -272,17 +273,24 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 			        return yScale(d.value);
 			    })
 			    .attr("r", 5)
-			    .on("mouseover", function(d,i) {
+			    .on("mouseover", function(d) {
 			    	console.log("hi");
 				    d3.select(this).append("text")
 				        .text(function(d) {return d.value;})
 				        .attr("xScale", xScale(d.date))
 				        .attr("yScale", yScale(d.value)); 
 				    });
-	    });
+			    
+			});
+			//allows for auto-scroll
+			
+		}
 		
-		$location.hash('graph');
-	  	$anchorScroll();
-	};
+		$scope.scroll = function(){
+			console.log("scrolling");
+			$location.hash('bottom');
+	  		$anchorScroll();
+
+		};
 });
 

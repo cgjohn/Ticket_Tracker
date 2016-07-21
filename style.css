@@ -355,7 +355,7 @@ svg {
 
 svg .data-point {
     stroke: #DF7A7A;
-    stroke-width: 1.5px;
+    stroke-width: 1px;
     fill: #DF7A7A;        
 }
 
