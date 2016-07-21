@@ -192,9 +192,12 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 			return $q.all(allPromises);
 	    }).then(function(results) {
 	    	console.log($scope.historicalDataset, "historical");
+
+	    	//removes previous graph to allow new one to be made
 	    	d3.select("svg").remove();
-	    	var width = 500;
-			var height = 250;    
+
+	    	var width = 800;
+			var height = 400;    
 
 			// Create the SVG 'canvas'
 			var svg = d3.select("#graph")
@@ -209,7 +212,7 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 			// console.log(dataset, " <--- dataset");
 			// console.log(oldDataset, " <--- old event dataset");
 			// Define the padding around the graph
-			var padding = 50;
+			var padding = 30;
 
 			// Set the scales
 			var minDate = d3.min(dataset, function(d) { return d.date; });
