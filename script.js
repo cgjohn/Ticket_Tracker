@@ -163,6 +163,7 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
     	$scope.myEvent = $firebaseObject(firebase.database().ref().child('events').child(eventID));
     	
     	$scope.myEvent.$loaded().then(function() {
+    		$scope.eventName = $scope.myEvent.name;
 	    	if ($scope.myEvent.previousEvents) {
 	    		angular.forEach($scope.myEvent.previousEvents, function(prevID) {
 	    			$scope.oldlistings = $firebaseObject(firebase.database().ref().child('listings').child(prevID));

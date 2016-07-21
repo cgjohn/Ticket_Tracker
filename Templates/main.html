@@ -21,7 +21,7 @@
 <div class="col-md-12">
 
 	<div ng-repeat="event in events | filter:searchText | futureDate">
-		<button class="eventButtons" ng-click="displayData(event.$id)"> {{event.name}} </button>
+		<button class="eventButtons" ng-click="displayData(event.$id); scroll()"> {{event.name}} </button>
 	</div>
 
 	<div class="col-md-12">
@@ -33,14 +33,16 @@
 				Look at what tickets everyone else is watching in Top Charts
 			</p>
 			<p>
-				Easily which events you have your eye on under Following
+				Easily find which events you have your eye on under Following
 			</p>
 		</div>
 	</div>
-</div> 
 
-<!-- where the svg is going to be made -->
-<div id="graph"></div>
-<!-- allows me to scroll to directly underneath the svg -->
+ 
+</div>
+
+<div class="graphDetails" id="graph">
+	<h2> {{ eventName }} </h2>
+</div>
+
 <div id="belowGraph"></div>
-
