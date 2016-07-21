@@ -230,7 +230,7 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 			var daysDataset = $scope.daysBetweenCurrDataset;
 			var oldDaysDataset = $scope.daysBetweenHistDataset;
 
-			console.log(daysDataset, " <--- daysDataset");
+			console.log(daysDataset, " <--- dataset");
 			console.log(oldDaysDataset, " <--- old event dataset");
 			// Define the padding around the graph
 			var padding = 30;
