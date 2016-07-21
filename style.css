@@ -337,6 +337,7 @@
     padding:6px 24px;
     text-decoration:none;
     text-shadow:0px 1px 0px #ffffff;
+    outline: none;
 }
 .eventButtons:hover {
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
@@ -348,15 +349,25 @@
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
     background-color:#f6f6f6;
 }
+
 .myButton:active {
     position:relative;
     top:1px;
+}
+
+#belowGraph {
+    height: 1000px;
+}
+
+.eventName {
+    margin-top: 500px;
 }
 
 /*--Graph Styling--*/
 path {
     fill: none;
     stroke: #A8A9AC;
+    stroke-width: 2;
 }
 
 svg {
@@ -367,25 +378,20 @@ svg {
 
 svg .data-point {
     stroke: #DF7A7A;
-    stroke-width: 1px;
+    stroke-width: 10;
     fill: #DF7A7A;        
 }
 
-svg .data-point-text {
-    font-family: sans-serif;
-    font-size: 6px;
-    fill: red;
-}
 
-svg .axis path, 
+svg .axis path {}
 svg .axis line {
-    fill: none;
     stroke: #A8A9AC;
+    stroke-width: 2;
 }
 
 svg .axis text {
     font-family: sans-serif;
-    font-size: 6px;
+    font-size: 1em;
 }
 
 
