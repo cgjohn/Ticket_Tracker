@@ -309,7 +309,19 @@
     color: #A8A9AC;
     font-size: 20px;
     font-weight: 200;
+    margin-bottom: 100px;
 }
+
+.graphDetails {
+    padding-top: 100px;
+}
+
+.graphDetails h2 {
+    color: #3E86B8;
+    font-family: "Raleway";
+    font-size: 30px;
+}
+
 .eventButtons {
     font-family: "Raleway";
     background-color:#ffffff;

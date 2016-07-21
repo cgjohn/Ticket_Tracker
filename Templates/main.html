@@ -20,13 +20,13 @@
 <div class="col-md-12">
 	<div ng-repeat="event in events | filter:searchText | futureDate">
 
-		<button class="eventButtons" ng-click="displayData(event.$id)"> {{event.name}} </button>
+		<button class="eventButtons" ng-click="displayData(event.$id); scroll()"> {{event.name}} </button>
 	</div>
 
 	<div class="col-md-12">
-		<div ng-repeat="event in events | filter:searchText">
+		<!-- <div ng-repeat="event in events | filter:searchText">
 			<button class="eventButtons" ng-click="getData(event.$id); scroll()"> {{event.name}} </button>
-		</div>
+		</div> -->
 
 		<div class="mainDescription">
 			<p>Search or find an event in our featured section</p>
@@ -39,5 +39,7 @@
  
 </div>
 
-<div id="graph"></div>
+<div class="graphDetails" id="graph">
+	<h2> {{ eventName }} </h2>
+</div>
 
