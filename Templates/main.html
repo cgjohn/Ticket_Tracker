@@ -22,7 +22,7 @@
 
 <div class="col-md-12">
 	<div ng-repeat="event in events | filter:searchText">
-		<button ng-click="getData(event.$id)"> {{event.name}} </button>
+		<button class="eventButtons" ng-click="getData(event.$id)"> {{event.name}} </button>
 	</div>
 
 	<div class="mainDescription">
