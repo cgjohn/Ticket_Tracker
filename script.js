@@ -210,6 +210,7 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 
 			return $q.all(allPromises);
 	    }).then(function(results) {
+	    	console.log($scope.historicalDataset, "historical");
 	    	d3.select("svg").remove();
 	    	var width = 500;
 			var height = 250;    

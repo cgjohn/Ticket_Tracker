@@ -7,8 +7,8 @@
 <div class="row">
 
 	<div class="mainText">
-		ticket
 		<img class="mainImage" alt="Brand" src="/images/logo.png">
+		ticketTracker
 	</div>
 
 
@@ -17,6 +17,7 @@
 		<button type="button" class="btn btn-default" ng-click="searchEvent()"> 
 			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 		</button>
+	</div>
 <div class="col-md-12">
 
 	<div ng-repeat="event in events | filter:searchText | futureDate">
@@ -36,6 +37,7 @@
 			</p>
 		</div>
 	</div>
+
  
 </div>
 
