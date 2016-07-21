@@ -28,14 +28,15 @@
 	</div>
 </div>
 
-<div ng-repeat="event in events | filter:searchText">
-	<button ng-click="getData(event.$id)"> {{event.name}} </button>
+<div id="graph">
+
 </div>
 
-<div>
-	{{dates}}
-	{{prices}}
+<div ng-repeat="event in events | filter:searchText">
+	<button ng-click="getData(event.$id); gotoGraph()"> {{event.name}} </button>
 </div>
+
+
 
 </div>
 

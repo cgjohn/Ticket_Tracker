@@ -10,6 +10,10 @@ app.run(["$rootScope", "$location", function($rootScope, $location) {
   });
 }]);
 
+app.run(['$anchorScroll', function($anchorScroll) {
+  $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
+}])
+
 
 app.config(function($routeProvider) {
 	$routeProvider.when('/', {
@@ -129,14 +133,14 @@ app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $wi
 	}
 });
 
-app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $firebaseArray, $window) {
+app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $firebaseArray, $window, $location, $anchorScroll) {
     $scope.authObj = $firebaseAuth();
 
     $scope.searchEvent = function() {
     	$scope.events = $firebaseArray(firebase.database().ref().child('events'));
     }
 
-
+    
 	$scope.getData = function (eventID) {
 		console.log("I make it here");
 		$scope.dataset0 = [];
@@ -161,7 +165,7 @@ app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $fir
 			var height = 250;    
 
 			// Create the SVG 'canvas'
-			var svg = d3.select("p")
+			var svg = d3.select("#graph")
 			    .append("svg")
 			    .attr("viewBox", "0 0 " + width + " " + height)
 
@@ -246,9 +250,12 @@ app.controller('MainCtrl', function($scope, $firebaseAuth, $firebaseObject, $fir
 				    });
 
 			});
-		
-	
+			//allows for auto-scroll
+			// $location.hash('graph');
+	  		//$anchorScroll();
 		}
+		
+
 	
 });
 
