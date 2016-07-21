@@ -158,21 +158,34 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
     $scope.displayData = function(eventID) {
     	$scope.historicalDataset = [];
     	$scope.currentDataset = [];
+    	$scope.daysBetweenCurrDataset = [];
+    	$scope.daysBetweenHistDataset = [];
     	var allPromises = [];
 
     	$scope.myEvent = $firebaseObject(firebase.database().ref().child('events').child(eventID));
     	
     	$scope.myEvent.$loaded().then(function() {
     		$scope.eventName = $scope.myEvent.name;
+    		var currEventDate = Date.parse($scope.myEvent.dateOfEvent);
 	    	if ($scope.myEvent.previousEvents) {
 	    		angular.forEach($scope.myEvent.previousEvents, function(prevID) {
+	    			$scope.oldEvent = $firebaseObject(firebase.database().ref().child('events').child(prevID));
+	    			$scope.oldEvent.$loaded().then(function() {
+	    				$scope.oldEventDate = Date.parse($scope.oldEvent.dateOfEvent);
+	    			});
 	    			$scope.oldlistings = $firebaseObject(firebase.database().ref().child('listings').child(prevID));
 	    			allPromises.push($scope.oldlistings.$loaded().then(function() {
 				    	angular.forEach($scope.oldlistings, function(price, date) {
+				    		var dateInSec = new Date(parseInt(date));
 							$scope.historicalDataset.push({
-								date: new Date(parseInt(date)),
+								date: dateInSec,
 								value: price
 							});
+							var diff =  Math.floor(( $scope.oldEventDate - dateInSec ) / (1000*60*60*24));
+							$scope.daysBetweenHistDataset.push({
+								days: diff,
+								value: price
+							})
 						});
 					}));
 	    		});
@@ -181,10 +194,16 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 	    	$scope.listings = $firebaseObject(firebase.database().ref().child('listings').child(eventID));
 			allPromises.push($scope.listings.$loaded().then(function() {
 		    	angular.forEach($scope.listings, function(price, date) {
+		    		var dateInSec = new Date(parseInt(date));
 					$scope.currentDataset.push({
-						date: new Date(parseInt(date)),
+						date: dateInSec,
 						value: price
 					});
+					var diff =  Math.floor(( $scope.EventDate - dateInSec ) / (1000*60*60*24));
+					$scope.daysBetweenCurrDataset.push({
+						days: diff,
+						value: price
+					})
 				});
 			}));
 
@@ -204,9 +223,11 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 			// get the data
 			var dataset = $scope.currentDataset;
 			var oldDataset = $scope.historicalDataset;
+			var daysDataset = $scope.daysBetweenCurrDataset;
+			var oldDaysDataset = $scope.daysBetweenHistDataset;
 
-			// console.log(dataset, " <--- dataset");
-			// console.log(oldDataset, " <--- old event dataset");
+			console.log(daysDataset, " <--- dataset");
+			console.log(oldDaysDataset, " <--- old event dataset");
 			// Define the padding around the graph
 			var padding = 50;
 
