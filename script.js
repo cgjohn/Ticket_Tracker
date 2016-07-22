@@ -124,7 +124,7 @@ app.controller('LoginCtrl', function($scope, $firebaseAuth, $firebaseObject, $wi
 			console.log("Signed in as:", firebaseUser.uid);
 			$scope.firebaseUser1 = firebaseUser;
 			console.log($scope.firebaseUser1);
-			$window.location.href = '#/main';
+			$window.location.href = '#/main#belowGraph';
 		}).catch(function(error) {
 			console.error("Authentication failed:", error);
 			$scope.errorMessage = error.message;
@@ -166,7 +166,7 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
     	
     	$scope.myEvent.$loaded().then(function() {
     		$scope.eventName = $scope.myEvent.name;
-    		var currEventDate = Date.parse($scope.myEvent.dateOfEvent);
+    		$scope.currEventDate = Date.parse($scope.myEvent.dateOfEvent);
 	    	if ($scope.myEvent.previousEvents) {
 	    		angular.forEach($scope.myEvent.previousEvents, function(prevID) {
 	    			$scope.oldEvent = $firebaseObject(firebase.database().ref().child('events').child(prevID));
@@ -199,7 +199,7 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 						date: dateInSec,
 						value: price
 					});
-					var diff =  Math.floor(( $scope.EventDate - dateInSec ) / (1000*60*60*24));
+					var diff =  Math.floor(( $scope.currEventDate - dateInSec ) / (1000*60*60*24));
 					$scope.daysBetweenCurrDataset.push({
 						days: diff,
 						value: price
@@ -230,7 +230,7 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 			var daysDataset = $scope.daysBetweenCurrDataset;
 			var oldDaysDataset = $scope.daysBetweenHistDataset;
 
-			console.log(daysDataset, " <--- dataset");
+			console.log(daysDataset, " <--- DaysDataset");
 			console.log(oldDaysDataset, " <--- old event dataset");
 			// Define the padding around the graph
 			var padding = 30;
@@ -318,4 +318,3 @@ app.controller('MainCtrl', function($scope, $q, $firebaseAuth, $firebaseObject, 
 		
 		
 });
-
